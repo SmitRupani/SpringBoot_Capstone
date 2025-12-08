@@ -3,7 +3,6 @@ package com.smit.uber.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Document(collection = "rides")
@@ -15,57 +14,83 @@ public class Ride {
     private String pickupLocation;
     private String dropLocation;
     private RideStatus status;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private Date createdAt;
+    private Date completedAt;
+    private long durationMillis;
+
+    public Ride() {
+        this.createdAt = new Date();
+        this.status = RideStatus.REQUESTED;
+    }
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getDriverId() {
         return driverId;
-    }
-
-    public void setDriverId(String driverId) {
-        this.driverId = driverId;
     }
 
     public String getPickupLocation() {
         return pickupLocation;
     }
 
-    public void setPickupLocation(String pickupLocation) {
-        this.pickupLocation = pickupLocation;
-    }
-
     public String getDropLocation() {
         return dropLocation;
-    }
-
-    public void setDropLocation(String dropLocation) {
-        this.dropLocation = dropLocation;
     }
 
     public RideStatus getStatus() {
         return status;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setDriverId(String driverId) {
+        this.driverId = driverId;
+    }
+
+    public void setPickupLocation(String pickupLocation) {
+        this.pickupLocation = pickupLocation;
+    }
+
+    public void setDropLocation(String dropLocation) {
+        this.dropLocation = dropLocation;
+    }
+
     public void setStatus(RideStatus status) {
         this.status = status;
     }
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public Date getCompletedAt() {
+        return completedAt;
+    }
+
+    public void setCompletedAt(Date completedAt) {
+        this.completedAt = completedAt;
+    }
+
+    public long getDurationMillis() {
+        return durationMillis;
+    }
+
+    public void setDuration() {
+        this.durationMillis = this.completedAt.getTime() - this.createdAt.getTime();
     }
 }
