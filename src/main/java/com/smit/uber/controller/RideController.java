@@ -9,7 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/rides")
+@RequestMapping("/api/rides")
 public class RideController {
     @Autowired
     private RideService rideService;

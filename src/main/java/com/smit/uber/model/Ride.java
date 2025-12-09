@@ -17,6 +17,7 @@ public class Ride {
     private Date createdAt;
     private Date completedAt;
     private long durationMillis;
+    private double fare;
 
     public Ride() {
         this.createdAt = new Date();
@@ -93,4 +94,10 @@ public class Ride {
     public void setDuration() {
         this.durationMillis = this.completedAt.getTime() - this.createdAt.getTime();
     }
+
+    public void setDurationMillis(long durationMillis) {this.durationMillis = durationMillis;}
+
+    public double getFare() {return fare;}
+
+    public void setFare(double fare) {this.fare = fare;}
 }
