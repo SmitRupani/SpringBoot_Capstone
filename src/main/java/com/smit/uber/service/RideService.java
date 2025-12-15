@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class RideService {
         ride.setPickupLocation(request.getPickupLocation());
         ride.setDropLocation(request.getDropLocation());
         ride.setFare(request.getFare());
+        ride.setDistance(request.getDistance());
         rideRepository.save(ride);
         return ride;
     }
@@ -65,8 +67,7 @@ public class RideService {
 
         if(ride.getStatus() == RideStatus.ACCEPTED){
             ride.setStatus(RideStatus.COMPLETED);
-            ride.setCompletedAt(new Date());
-            ride.setDuration();
+            ride.setCompletedAt(LocalDate.now());
             rideRepository.save(ride);
         }else{
             throw new BadRequestException("Ride is either already completed or in REQUESTED state");

@@ -1,4 +1,4 @@
-package com.smit.uber.controller;
+package com.smit.uber.controller.v1;
 
 import com.smit.uber.model.Ride;
 import com.smit.uber.model.User;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/driver")
+@RequestMapping("/api/v1/driver")
 public class DriverController {
     @Autowired
     private RideService rideService;

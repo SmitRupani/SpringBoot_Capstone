@@ -10,6 +10,12 @@ public class CreateRideRequest {
     @NotBlank(message = "Fare is required")
     private double fare;
 
+    private double distance;
+
+    public double getDistance() {return distance;}
+
+    public void setDistance(double distance) {this.distance = distance;}
+
     public String getPickupLocation() {
         return pickupLocation;
     }

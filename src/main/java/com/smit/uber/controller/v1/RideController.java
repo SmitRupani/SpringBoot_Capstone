@@ -1,4 +1,4 @@
-package com.smit.uber.controller;
+package com.smit.uber.controller.v1;
 
 import com.smit.uber.dto.CreateRideRequest;
 import com.smit.uber.model.Ride;
@@ -9,7 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/rides")
+@RequestMapping("/api/v1/rides")
 public class RideController {
     @Autowired
     private RideService rideService;

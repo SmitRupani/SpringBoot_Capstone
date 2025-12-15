@@ -1,4 +1,4 @@
-package com.smit.uber.controller;
+package com.smit.uber.controller.v1;
 
 import com.smit.uber.service.AnalyticsService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/analytics")
+@RequestMapping("/api/v1/analytics")
 public class AnalyticsController {
 
     private final AnalyticsService analytics;

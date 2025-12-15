@@ -1,4 +1,4 @@
-package com.smit.uber.controller;
+package com.smit.uber.controller.v1;
 
 import com.smit.uber.exception.BadRequestException;
 import com.smit.uber.model.Ride;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
     @Autowired
     RideService rideService;

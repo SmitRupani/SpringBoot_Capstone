@@ -1,4 +1,4 @@
-package com.smit.uber.controller;
+package com.smit.uber.controller.v1;
 
 
 import com.smit.uber.dto.LoginRequest;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
     @Autowired
