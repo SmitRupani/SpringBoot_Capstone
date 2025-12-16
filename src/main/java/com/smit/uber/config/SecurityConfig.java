@@ -30,10 +30,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        // ⚠️ Swagger paths MUST be first!
+                        .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/swagger-ui/index.html").permitAll()
+                        .requestMatchers("/api-docs/**", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
+                        // API endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/v1/driver/**").hasRole("DRIVER")
                         .requestMatchers("/api/v1/user/**").hasRole("USER")
-                        .requestMatchers("/api/docs/**", "/swagger-resources/**", "/").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(s ->

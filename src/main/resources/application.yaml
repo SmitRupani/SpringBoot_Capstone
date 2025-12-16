@@ -21,5 +21,29 @@ app:
     name: Smit Rupani
     email: smitrupani@sst.com
 
-
+# Swagger/OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+  group-configs:
+    - group: 'auth'
+      display-name: 'Authentication APIs'
+      paths-to-match: '/api/auth/**'
+    - group: 'v1'
+      display-name: 'V1 APIs'
+      paths-to-match: '/api/v1/**'
+    - group: 'v2'
+      display-name: 'V2 APIs (Live Coding)'
+      paths-to-match: '/api/v2/**'
+    - group: 'core-rides'
+      display-name: 'Core Ride APIs'
+      paths-to-match: '/api/rides/**'
+    - group: 'core-analytics'
+      display-name: 'Core Analytics APIs'
+      paths-to-match: '/api/analytics/**'
 

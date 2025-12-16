@@ -15,6 +15,10 @@ public class DriverController {
     @Autowired
     private RideService rideService;
 
+    DriverController(RideService rideService) {
+        this.rideService = rideService;
+    }
+
 
     // view all pending request
     @GetMapping("/rides/requests")

@@ -197,6 +197,6 @@ public class RideQueryService {
     }
 
     public List<Ride> getRidesForDate(LocalDate date) {
-        return rideRepository.findByCreatedDate(date);
+        return rideRepository.findByCreatedAt(date);
     }
 }
