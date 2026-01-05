@@ -12,6 +12,5 @@ import java.util.List;
 public interface RideRepository extends MongoRepository<Ride, String> {
     List<Ride> findByStatus(RideStatus status);
     List<Ride> findByUserId(String userId);
-    Iterable<Ride> findByPickupLocationAndDropLocation(String from, String to);
     List<Ride> findByCreatedAt(LocalDate date);
 }

@@ -6,6 +6,13 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/uber
 
+  cache:
+    type: redis
+
+  redis:
+    host: localhost
+    port: 6379
+
 jwt:
   secret: mysupersecretkey123456789ubertoken
   expiration: 86400000  # 24 hours in ms

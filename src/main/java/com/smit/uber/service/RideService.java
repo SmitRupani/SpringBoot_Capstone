@@ -8,12 +8,13 @@ import com.smit.uber.model.RideStatus;
 import com.smit.uber.model.User;
 import com.smit.uber.repository.RideRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -51,6 +52,9 @@ public class RideService {
         return ride;
     }
 
+    @Transactional
+    @CachePut(value = "userRides", key = "result.userId")
+    @CacheEvict(value = "driverStats", allEntries = true)
     public Ride completeRide(String rideId) {
         Ride ride = rideRepository.findById(rideId)
                 .orElseThrow(() -> new NotFoundException("Ride not found"));

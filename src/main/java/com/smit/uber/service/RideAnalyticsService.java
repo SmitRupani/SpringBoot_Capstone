@@ -3,6 +3,7 @@ package com.smit.uber.service;
 import com.smit.uber.model.Ride;
 import com.smit.uber.model.RideStatus;
 import org.bson.Document;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
@@ -50,6 +51,7 @@ public class RideAnalyticsService {
      * TODO: Implement using aggregation pipeline
      * Expected: MATCH by driverId, GROUP with conditional counts, PROJECT
      */
+    @Cacheable( value = "driverStats", key = "#driverId")
     public Map<String, Object> getDriverStats(String driverId) {
         // TODO: Implement this method
         // Hint: Use MATCH → GROUP → PROJECT pattern
