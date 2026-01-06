@@ -3,6 +3,7 @@ package com.smit.uber.service;
 import com.smit.uber.dto.CreateRideRequest;
 import com.smit.uber.exception.BadRequestException;
 import com.smit.uber.exception.NotFoundException;
+import com.smit.uber.kafka.RideEventProducer;
 import com.smit.uber.model.Ride;
 import com.smit.uber.model.RideStatus;
 import com.smit.uber.model.User;
@@ -20,8 +21,13 @@ import java.util.List;
 @Service
 public class RideService {
 
-    @Autowired
+    private RideEventProducer rideEventProducer;
     private RideRepository rideRepository;
+
+    public RideService(RideEventProducer rideEventProducer, RideRepository rideRepository) {
+        this.rideEventProducer = rideEventProducer;
+        this.rideRepository = rideRepository;
+    }
 
     public Ride createRide(CreateRideRequest request, String userId) {
         Ride ride =  new Ride();
