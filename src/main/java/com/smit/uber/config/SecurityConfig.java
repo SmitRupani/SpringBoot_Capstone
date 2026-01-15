@@ -38,6 +38,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/driver/**").hasRole("DRIVER")
                         .requestMatchers("/api/v1/user/**").hasRole("USER")
                         .requestMatchers("/api/files/**").permitAll()
+                        .requestMatchers("/api/test/notifications/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(s ->
